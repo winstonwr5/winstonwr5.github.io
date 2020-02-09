@@ -17,6 +17,7 @@ $(() => {
     //
     //     })
     // })
+    
  ///// Variable for message when Time has elapsed ////
     let timeUp = function() {
         alert('Time\'s Up!!!')
