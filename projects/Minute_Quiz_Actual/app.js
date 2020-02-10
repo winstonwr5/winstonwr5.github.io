@@ -3,10 +3,44 @@
 
 $(() => {
 
-    $('#start-button').on('click', (event) => {
+            /////////////////////////////////////////
+            //// Start button created and tested ////
+            /////////////////////////////////////////
+
+    $('.button').on('click', (event) => {
         event.preventDefault()
-        console.log('clicked!');
+
+        let userInput = $('input[type="text"]').val()
+
+        const formatResponse = (userInput) => {
+            return userInput[0].toLowerCase()
+        }
+
+        const greet = () => {
+            alert('Hi!')
+        }
+
+        const depart = () => {
+            alert('Bye!')
+        }
+
+        let answer = prompt('Are you (g)oing or (s)taying', 'Going or Staying?')
+
+        let softAnswer = formatResponse(userInput)
+
+        if (softAnswer === 'g') {
+            greet()
+        } else if (softAnswer === 's') {
+            depart()
+        }
     })
+            /////////////////////////////////////////
+            ////////// Variables for Game ///////////
+            /////////////////////////////////////////
+    // let userInput =
+    // let startButton = $(event.target).attr('id')
+    // let link = 'https://opentdb.com/api.php?amount=1'
+
                     //////////////////////
                     /// API connected ////
                     //////////////////////
@@ -19,6 +53,20 @@ $(() => {
     //     error: ()=>{
     //         console.log('bad request');
     //     }
+
+                    /////////////////////////////
+                    /// AJAX to retrieve data ///
+                    /////////////////////////////
+
+        // $.ajax({
+        //     url: link,
+        //     (data) => {
+        //
+        //     }
+        // }).then(data) {
+        //     const
+        // }
+        // })
 
                     //////////////////////////
                     /// Variables for Game ///
@@ -51,8 +99,11 @@ $(() => {
     // }, 1000);
 
 
-});
- ///// Variable for message when Time has elapsed ////
+// });
+        /////////////////////////////////////////////////////
+        ///// Variable for message when Time has elapsed ////
+        /////////////////////////////////////////////////////
+
     // let timeUp = function() {
     //     alert('Time\'s Up!!!')
     // }
@@ -75,4 +126,4 @@ $(() => {
 //
 //     $openBtn.on('click', openModal);
 //     $closeBtn.on('click', closeModal);
-// });
+});
