@@ -2,6 +2,11 @@
 
 
 $(() => {
+
+    $('#start-button').on('click', (event) => {
+        event.preventDefault()
+        console.log('clicked!');
+    })
                     //////////////////////
                     /// API connected ////
                     //////////////////////
@@ -26,9 +31,9 @@ $(() => {
     //     })
     // })
 
-    /////////////////////////////////
-    // function for game countdown //
-    /////////////////////////////////
+                /////////////////////////////////
+                // function for game countdown //
+                /////////////////////////////////
 
     // const $secondsTimer = $('#seconds-timer');
     // let secondsTimer = 60
