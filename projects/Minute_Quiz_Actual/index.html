@@ -7,11 +7,13 @@
         <script type="text/javascript" src="app.js" charset="utf-8"></script>
         <title>Minute Quiz</title>
     </head>
-    <body>
-
-        <button id="openModal">Rules</button>
-            <div id="modal">
-                <div id="modal-textbox">
+        <body>
+            <div id="game-timer">
+                <div id="countdown"></div>
+            </div>
+            <button class="modal-buttons" id="openModal">Rules</button>
+                <div id="modal">
+                    <div id="modal-textbox">
                         <h1>Minute Quiz</h1>
                             <p>Welcome to Minute Quiz!!!</p>
                             <p>With 60 seconds on the clock, sharpen your mind's recall speed by answering as many questions as possible.</p>
@@ -19,10 +21,10 @@
                         <div id="modal-footer">
                             <button class="modal-buttons" id="close" href="#">Close</button>
                         </div>
+                    </div>
                 </div>
-            </div>
-        <div id="countdown">
-            <progress value="0" max="60">0%</progress>
-        </div>
-    </body>
+                <div id="countdown">
+                    <progress value="0" max="60">0%</progress>
+                </div>
+        </body>
 </html>
