@@ -11,29 +11,39 @@ $(() => {
         event.preventDefault()
 
         let userInput = $('input[type="text"]').val()
+        let startButton = $(event.target).attr('id')
+        // console.log(userInput)
+        // console.log(startButton)
+        // let start = () => {
 
-        const formatResponse = (userInput) => {
-            return userInput[0].toLowerCase()
-        }
+        })
 
-        const greet = () => {
-            alert('Hi!')
-        }
-
-        const depart = () => {
-            alert('Bye!')
-        }
-
-        let answer = prompt('Are you (g)oing or (s)taying', 'Going or Staying?')
-
-        let softAnswer = formatResponse(userInput)
-
-        if (softAnswer === 'g') {
-            greet()
-        } else if (softAnswer === 's') {
-            depart()
-        }
-    })
+    ///////////////////////////////////////////////////////
+    //// Make answers more forgiving - Doesn't work yet ///
+    ///////////////////////////////////////////////////////
+    //
+    //     const formatResponse = (userInput) => {
+    //         return userInput[0].toLowerCase()
+    //     }
+    //
+    //     const greet = () => {
+    //         alert('Hi!')
+    //     }
+    //
+    //     const depart = () => {
+    //         alert('Bye!')
+    //     }
+    //
+    //     let answer = prompt('Are you (g)oing or (s)taying', 'Going or Staying?')
+    //
+    //     let softAnswer = formatResponse(userInput)
+    //
+    //     if (softAnswer === 'g') {
+    //         greet()
+    //     } else if (softAnswer === 's') {
+    //         depart()
+    //     }
+    // })
             /////////////////////////////////////////
             ////////// Variables for Game ///////////
             /////////////////////////////////////////
@@ -113,17 +123,17 @@ $(() => {
             //// Opening Modal with Game Rules ////
             ///////////////////////////////////////
 
-//     const $openBtn = $('#openModal');
-//     const $modal = $('#modal');
-//     const $closeBtn = $('#close');
-//
-//     const openModal = () => {
-//         $modal.css('display', 'block');
-//     }
-//     const closeModal = () => {
-//         $modal.css('display','none');
-//     }
-//
-//     $openBtn.on('click', openModal);
-//     $closeBtn.on('click', closeModal);
+    // const $openBtn = $('#openModal');
+    // const $modal = $('#modal');
+    // const $closeBtn = $('#close');
+    //
+    // const openModal = () => {
+    //     $modal.css('display', 'block');
+    // }
+    // const closeModal = () => {
+    //     $modal.css('display','none');
+    // }
+    //
+    // $openBtn.on('click', openModal);
+    // $closeBtn.on('click', closeModal);
 });
