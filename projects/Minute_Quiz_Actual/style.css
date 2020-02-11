@@ -1,3 +1,16 @@
+* {
+    border: 2px solid gold;
+}
+
+#hero-title {
+    display: flex;
+    text-align: center;
+    margin: 12px auto;
+}
+
+.container {
+    display: block;
+}
 #modal {
     background-color: rgba(0,0,0,0.4);
     position: fixed;
