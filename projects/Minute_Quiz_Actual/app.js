@@ -1,22 +1,90 @@
-// console.log("hello world");
+// console.log($);
+    // const obj = {
+    //     url: 'https://opentdb.com/api.php?amount=1',
+    //     success: (data) =>{
+    //         console.log(data);
+    //     },
+    //     error: () => {
+    //         console.log('bad request');
+    //     }
+    // }
+
+$(( ) => {
+//         $.ajax({
+//             url: 'https://opentdb.com/api.php?amount=1'
+//             // data: {
+//             //     "$limit": 1
+//             // }
+//         }).then((data) => {
+
+                /////////////////////////////
+                //// Append attempts ////////
+                /////////////////////////////
 
 
-$(() => {
+//             data.Search.forEach((el)=> {
+//                 const $questions =$('.questions')
+//                 const $div = $(`<div><span>${el.Category}</span><span>${el.Type}</span><span>${el.Difficulty}</span><span>${el.Question}{/span}<br/><hr></div>`);
+//                 $questions.append($div)
+//             })
+//         },
+//             // console.log(data);
 
-            /////////////////////////////////////////
-            //// Start button created and tested ////
-            /////////////////////////////////////////
 
-    $('.button').on('click', (event) => {
-        event.preventDefault()
+                // $('#category').html(data.Category);
+                // $('#type').html(data.Type);
+                // $('#difficulty').html(data.Difficulty);
+                // $('#question').html(data.Question);
+//             }),
+        //     () =>{
+        //         console.log('bad');
+        //     }
+        // );
+                    /////////////////////////////////////////
+                    //// Start button created and tested ////
+                    /////////////////////////////////////////
+        //
+            const buttonClick = $('.button').on('click', (event) => {
+                event.preventDefault()
+            //
+                const userInput = $('input[type="text"]').val()
+                let startButton = $(event.target).attr('id')
 
-        let userInput = $('input[type="text"]').val()
-        let startButton = $(event.target).attr('id')
-        // console.log(userInput)
-        // console.log(startButton)
-        // let start = () => {
+                    /////////////////////////////
+                    /// AJAX to retrieve data ///
+                    /////////////////////////////
 
-        })
+                $.ajax({
+                    url: 'https://opentdb.com/api.php?amount=1',
+                    success: (data) => {
+
+
+                    // + buttonClick
+                    // }).then((data) => {
+
+                /// for loop to run through data ////
+
+                        // for (let i = 0; i < data.length; i++) {
+                        //     const $data = $('<dd>').attr('class', 'data')
+                        //     $('.questions').append($data)
+                        //     $readout.html("Category :" + data[i].readout)
+
+            /// OR putting specific data right on page /////
+
+                        $('#category').html(data.results[0].category);
+                        $('#type').html(data.results[0].type);
+                        $('#difficulty').html(data.results[0].difficulty);
+                        $('#question').html(data.results[0].question);
+                    },
+                    error: () => {
+                        console.log('no no no');
+                    }
+                });
+        //         // console.log(userInput)
+        //         // console.log(startButton)
+        //         // let start = () => {
+        //         // let link = 'https://opentdb.com/api.php?amount=1'
+
 
     ///////////////////////////////////////////////////////
     //// Make answers more forgiving - Doesn't work yet ///
@@ -49,32 +117,23 @@ $(() => {
             /////////////////////////////////////////
     // let userInput =
     // let startButton = $(event.target).attr('id')
-    // let link = 'https://opentdb.com/api.php?amount=1'
+    //
 
                     //////////////////////
                     /// API connected ////
                     //////////////////////
 
     // $.ajax({
-    //     url: 'https://opentdb.com/api.php?amount=30',
+    //     url: 'https://opentdb.com/api.php?amount=1',
     //     success: (data) => {
     //         console.log(data);
     //     },
     //     error: ()=>{
     //         console.log('bad request');
     //     }
+    // });
 
-                    /////////////////////////////
-                    /// AJAX to retrieve data ///
-                    /////////////////////////////
 
-        // $.ajax({
-        //     url: link,
-        //     (data) => {
-        //
-        //     }
-        // }).then(data) {
-        //     const
         // }
         // })
 
@@ -123,17 +182,18 @@ $(() => {
             //// Opening Modal with Game Rules ////
             ///////////////////////////////////////
 
-    // const $openBtn = $('#openModal');
-    // const $modal = $('#modal');
-    // const $closeBtn = $('#close');
-    //
-    // const openModal = () => {
-    //     $modal.css('display', 'block');
-    // }
-    // const closeModal = () => {
-    //     $modal.css('display','none');
-    // }
-    //
-    // $openBtn.on('click', openModal);
-    // $closeBtn.on('click', closeModal);
+    const $openBtn = $('#openModal');
+    const $modal = $('#modal');
+    const $closeBtn = $('#close');
+
+    const openModal = () => {
+        $modal.css('display', 'block');
+    }
+    const closeModal = () => {
+        $modal.css('display','none');
+    }
+
+    $openBtn.on('click', openModal);
+    $closeBtn.on('click', closeModal);
 });
+})

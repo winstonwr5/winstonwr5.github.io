@@ -17,11 +17,25 @@
                     </div>
 
                     <div class="questions">
+                        <h2>Question:</h2>
+                        <dl class="">
+                            <dt>Category</dt>
+                            <dd id="category"></dd>
+
+                            <dt>Type</dt>
+                            <dd id="type"></dd>
+
+                            <dt>Difficulty</dt>
+                            <dd id="difficulty"></dd>
+
+                            <dt>Q:</dt>
+                            <dd id="question"></dd>
+                        </dl>
+                    </div>
                         <form class="data">
                             <input type="text" name="" value="">
                         </form>
-                    </div>
-                        <button class="button" id="start-button">Wanna Play?!</button>
+                        <button type="submit" class="button" id="start-button">Wanna Play?!</button>
 
                     <button class="button" id="openModal">Rules</button>
                         <div id="modal">
@@ -32,11 +46,22 @@
                                     <p>As soon as you click the "Wanna Play" button, let the trivia begin!!</p>
                                 <div id="modal-footer">
                                     <button class="button" id="close" href="#">Close</button>
+
+                            <div id="game-end-modal">
+                                <h1>Game Over!</h1>
+                                <div class="results">
+
+                                </div>
+                                    <p>Hope you enjoyed your game!</p>
+                                    <p>Come back soon and try to beat your score!</p>
+                                <div id="end-modal-footer">
+                                    <button class="button" id="close" href="#">End Game</button>
+                                </div>
+
+
+                            </div>
                                 </div>
                             </div>
-                        </div>
-                        <div id="countdown">
-                            <progress value="0" max="60">0%</progress>
                         </div>
                 </div>
 
