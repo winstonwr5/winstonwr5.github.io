@@ -9,7 +9,7 @@
     //     }
     // }
 
-$(( ) => {
+
 //         $.ajax({
 //             url: 'https://opentdb.com/api.php?amount=1'
 //             // data: {
@@ -43,17 +43,17 @@ $(( ) => {
                     /////////////////////////////////////////
                     //// Start button created and tested ////
                     /////////////////////////////////////////
-        //
-            const buttonClick = $('.button').on('click', (event) => {
-                event.preventDefault()
-            //
-                const userInput = $('input[type="text"]').val()
-                let startButton = $(event.target).attr('id')
-
-                    /////////////////////////////
-                    /// AJAX to retrieve data ///
-                    /////////////////////////////
-
+        // //
+        //     const buttonClick = $('.button').on('click', (event) => {
+        //         event.preventDefault()
+        //     //
+        //         const userInput = $('input[type="text"]').val()
+        //         let startButton = $(event.target).attr('id')
+$(( ) => {
+                    /////////////////////////////////
+                    /// Function to retrieve data ///
+                    /////////////////////////////////
+            function getQuestion() {
                 $.ajax({
                     url: 'https://opentdb.com/api.php?amount=1',
                     success: (data) => {
@@ -70,16 +70,18 @@ $(( ) => {
                         //     $readout.html("Category :" + data[i].readout)
 
             /// OR putting specific data right on page /////
-
-                        $('#category').html(data.results[0].category);
-                        $('#type').html(data.results[0].type);
-                        $('#difficulty').html(data.results[0].difficulty);
-                        $('#question').html(data.results[0].question);
+                        console.log(data.results[0]);
+                        $('#category').html(data.results[0].category)
+                        $('#type').html(data.results[0].type)
+                        $('#difficulty').html(data.results[0].difficulty)
+                        $('#question').html(data.results[0].question)
+                        correctAnswer = data.results[0].correct_answer;
                     },
                     error: () => {
                         console.log('no no no');
                     }
                 });
+            }
         //         // console.log(userInput)
         //         // console.log(startButton)
         //         // let start = () => {
