@@ -11,7 +11,20 @@
 .container {
     display: block;
 }
-#modal {
+
+#first-modal {
+    background-color: rgba(0,0,0,0.4);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    overflow: auto;
+    display: none;
+}
+
+#game-end-modal {
     background-color: rgba(0,0,0,0.4);
     position: fixed;
     top: 0;
@@ -40,6 +53,10 @@
     text-align: right;
 }
 
+#end-modal-footer {
+    text-align: right;
+}
+
 .button {
     padding: 14px 18px;
     background-color: #FF896F;
@@ -50,6 +67,18 @@
     font-family: Avenir;
     cursor: pointer;
 }
+
+.endButton {
+    padding: 14px 18px;
+    background-color: #FF896F;
+    border: none;
+    outline: none;
+    border-radius: 3px;
+    color: white;
+    font-family: Avenir;
+    cursor: pointer;
+}
+
 
 h1 {
     text-decoration: underline;

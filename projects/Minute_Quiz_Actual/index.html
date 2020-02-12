@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="style.css">
         <script src="https://code.jquery.com/jquery-3.3.1.min.js" charset="utf-8"></script>
-        <script type="text/javascript" src="app.js" charset="utf-8"></script>
+        <script type="text/javascript" src="app2.js" charset="utf-8"></script>
         <title>Minute Quiz</title>
     </head>
         <body>
@@ -30,15 +30,20 @@
 
                             <dt>Q:</dt>
                             <dd id="question"></dd>
+
+                            <dt>A:</dt>
+                            <dd id="correctAnswer"></dd>
                         </dl>
                     </div>
-                        <form class="data">
-                            <input type="text" class="submitAnswer" value="">
+                    <div class="dataInput">
+                        <form class="data" event="submit">
+                            <input type="text" class="submitAnswer" size="40">
                         </form>
                         <button type="submit" class="button" id="start-button">Wanna Play?!</button>
+                    </div>
 
                     <button class="button" id="openModal">Rules</button>
-                        <div id="modal">
+                        <div id="first-modal">
                             <div id="modal-textbox">
                                 <h1>Minute Quiz</h1>
                                     <p>Welcome to Minute Quiz!!!</p>
@@ -46,23 +51,21 @@
                                     <p>As soon as you click the "Wanna Play" button, let the trivia begin!!</p>
                                 <div id="modal-footer">
                                     <button class="button" id="close" href="#">Close</button>
-
-                            <div id="game-end-modal">
-                                <div id="modal-textbox">
-                                    <h1>Game Over!</h1>
-                                    <div class="results"></div>
-                                        <p>Hope you enjoyed your game!</p>
-                                        <p>Come back soon and try to beat your score!</p>
-                                    <div id="end-modal-footer">
-                                        <button class="button" id="close" href="#">End Game</button>
-                                    </div>
-
-                                </div>
-                            </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
+                        <div id="game-end-modal">
+                            <div id="modal-textbox">
+                                <h1>Game Over!</h1>
+                                <div class="results"></div>
+                                    <p>Hope you enjoyed your game!</p>
+                                    <p>Come back soon and try to beat your score!</p>
+                                <div id="end-modal-footer">
+                                    <button class="endButton" id="game-close" href="#">End Game</button>
+                                </div>
+                            </div>
+                        </div>
+                </div>
         </body>
 </html>

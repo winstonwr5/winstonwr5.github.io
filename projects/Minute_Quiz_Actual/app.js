@@ -49,7 +49,7 @@
         //     //
         //         const userInput = $('input[type="text"]').val()
         //         let startButton = $(event.target).attr('id')
-$(( ) => {
+// $(( ) => {
 //             let numberRight = []
 //
 //             let numberWrong = []
@@ -213,10 +213,7 @@ $(( ) => {
 //         ///// Variable for message when Time has elapsed ////
 //         /////////////////////////////////////////////////////
 //
-//     // let timeUp = function() {
-//     //     alert('Time\'s Up!!!')
-//     // }
-//     // setTimeout(timeUp, 10000)
+
 //
 //             ///////////////////////////////////////
 //             //// Opening Modal with Game Rules ////
@@ -240,107 +237,169 @@ $(( ) => {
 //     $openBtn.on('click', openModal);
 //     $closeBtn.on('click', closeModal);
 $(( ) => {
-    let numberRight = []
+    // let numberRight = []
+    //
+    // let numberWrong = []
 
-    let numberWrong = []
+                    ///////////////////////////////////////
+                    //// Opening Modal with Game Rules ////
+                    ///////////////////////////////////////
+    let correctAnswer
 
-    const startButton = $('#start-button').on('click', (event) => {
+    const submitAnswer = $('.data').on('submit', (event) => {
+        event.preventDefault()
+        let userInputLowerCase = $('input[type="text"]').val().toLowerCase()
+        let answerLowerCase = correctAnswer.toLowerCase()
+
+    })
+
+    const $openBtn = $('#openModal');
+    const $firstModal = $('#first-modal');
+    const $gameEndModal = $('#game-end-modal');
+    const $closeBtn = $('#close');
+    const $closeOutBtn = $('#game-close');
+
+    const openModal = () => {
+        $firstModal.css('display', 'block');
+    }
+
+    const closeModal = () => {
+        $firstModal.css('display', 'none');
+    }
+
+    const gameEndModal = () => {
+        $gameEndModal.css('display', 'block');
+    }
+
+    const closeGameEndModal = (event) => {
+        event.preventDefault()
+        $gameEndModal.css('display', 'none')
+
+
+    }
+
+    $openBtn.on('click', openModal);
+    $closeBtn.on('click', closeModal);
+    $closeOutBtn.on('click', closeGameEndModal);
+
+        /////////////////////////////////
+        // function for game countdown //
+        /////////////////////////////////
+
+        const $secondsTimer = $('#seconds-timer');
+        let secondsTimer = 60
+
+        function hide() {
+        $('#start-button').hide()
+        $('#openModal').hide();
+    }
+        function show() {
+        $('#game-end-modal').show();
+    };
+
+        function gameTimer() {
+            setInterval(() => {
+                secondsTimer--;
+                if (secondsTimer <= 0) {
+                    clearInterval(gameTimer);
+                    $('#game-timer').html('<h2>Time!<h2>');
+                    show();
+                    return;
+                } else {
+                    $('#countdown').text(secondsTimer + " secs");
+                    // console.log("Game-timer -->" + secondsTimer);
+                }
+            }, 1000);
+        };
+
+        // const closeModal = $('.modal-button').on('click', (event) => {
+        //     event.preventDefault()
+        // });
+
+        const startButton = $('#start-button').on('click', (event) => {
         event.preventDefault()
         gameTimer()
         getQuestion()
+        hide()
+
     })
-    let correctAnswer
 
     function getQuestion() {
         $.ajax({
             url: 'https://opentdb.com/api.php?amount=1',
             success: (data) => {
                 console.log(data.results[0]);
-                $("#category").html(data.results[0].category)
-                $("#type").html(data.results[0].type)
-                $("#difficulty").html(data.results[0].difficulty)
-                $("#question").html(data.results[0].question)
-                correctAnswer = data.results[0].correct_answer;
-                // handleAnswer();
-                },
+                $('#category').html(data.results[0].category)
+                $('#type').html(data.results[0].type)
+                $('#difficulty').html(data.results[0].difficulty)
+                $('#question').html(data.results[0].question);
+                $('#correctAnswer').html(data.results[0].correct_answer)
+                console.log(correctAnswer);
+                if (userInputLowerCase === answerLowerCase) {
+                    console.log('right!')
+                    // console.log(correctAnswer)
+                    $('#correctAnswer').html(data.results[0].correct_answer)
+                    let timeUp = function() {
+                        $('#correctAnswer').html('')
+                    }
+                    setTimeout(timeUp, 2000)
+                    // numberRight.push(rightAnswer)
+                    $('input[type="text"]').val('')
+                    getQuestion()
+                    } else {
+                        console.log('wrong')
+                        // console.log(correctAnswer)
+                        $('#correctAnswer').html(data.results[0].correct_answer)
+                        // numberWrong.push(wrongAnswer)
+                        $('input[type="text"]').val('')
+                        getQuestion()
+                    }
+                    // console.log($('#correctAnswer'));
+                    // console.log(data.results);
+                }
+            }),
                 error: ()=>{
                 console.log('bad request');
-                }
-            });
 
-    function handleAnswer(answer) {
-
-                }
+            }
         }
-
-                    /////////////////////////////////
-                    // function for game countdown //
-                    /////////////////////////////////
-
-    const $secondsTimer = $('#seconds-timer');
-    let secondsTimer = 60
-
-    function gameTimer() {
-        setInterval(() => {
-        secondsTimer--;
-        if (secondsTimer <= 0) {
-            clearInterval(gameTimer);
-            $('#game-timer').html('<h2>Time!<h2>');
-            return;
-        } else {
-            $('#countdown').text(secondsTimer + " secs");
-            console.log("Game-timer -->" + secondsTimer);
-        }
-    }, 1000);
-};
-
-        const closeModal = $('.modal-button').on('click', (event) => {
-            event.preventDefault()
-            getQuestion()
-        });
-
-        const submitAnswer = $('.submit-answer').on('click', (event) => {
-            event.preventDefault()
-            let userInputLowerCase = $('input[type="text"]').val().toLowerCase()
-            let answerLowerCase = correctAnswer.toLowerCase()
-
-            if (userInputLowerCase === answerLowerCase) {
-                console.log('right!')
-                // numberRight.push(rightAnswer)
-                getQuestion()
-                console.log(correctAnswer)
-                $('input[type="text"]').val('')
-                } else {
-                    console.log('wrong')
-                    // numberWrong.push(wrongAnswer)
-                    getQuestion()
-                    $('input[type="text"]').val('')
-                }
-            });
-
-        const buttonClick = $('.button').on('click', (event) => {
-            event.preventDefault()
-            //
-            const userInput = $('input[type="text"]').val()
-
-
-                    ///////////////////////////////////////
-                  //// Opening Modal with Game Rules ////
-                  ///////////////////////////////////////
-        const $openBtn = $('#openModal');
-        const $modal = $('#modal');
-        const $closeBtn = $('#close');
-
-        const openModal = () => {
-        $modal.css('display', 'block');
-        }
-
-        const closeModal = () => {
-        $modal.css('display', 'none');
-        }
-
-        $openBtn.on('click', openModal);
-        $closeBtn.on('click', closeModal);
-        });
-    });
 });
+
+    // function handleAnswer(answer) {
+    //
+    //             }
+// })
+
+
+
+        // const submitAnswer = $('.submit-answer').on('click', (event) => {
+        //     event.preventDefault()
+        //     let userInputLowerCase = $('input[type="text"]').val().toLowerCase()
+        //     let answerLowerCase = correctAnswer.toLowerCase()
+        //
+        //     if (userInputLowerCase === answerLowerCase) {
+        //         console.log('right!')
+        //         console.log(correctAnswer)
+        //         $('#correctAnswer').html(data.results[0].correct_answer)
+        //         // numberRight.push(rightAnswer)
+        //         $('input[type="text"]').val('')
+        //         getQuestion()
+        //         } else {
+        //             console.log('wrong')
+        //             console.log(correctAnswer)
+        //             $('#correctAnswer').html(data.results[0].correct_answer)
+        //             // numberWrong.push(wrongAnswer)
+        //             $('input[type="text"]').val('')
+        //             getQuestion()
+        //         }
+        //     });
+
+        // const buttonClick = $('.button').on('click', (event) => {
+        //     event.preventDefault()
+        //     //
+        //     const userInput = $('input[type="text"]').val()
+
+
+
+
+    ;
