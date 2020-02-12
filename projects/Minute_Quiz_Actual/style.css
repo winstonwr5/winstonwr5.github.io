@@ -1,15 +1,36 @@
 * {
     border: 2px solid gold;
+
+}
+
+body {
+    background-image: url(/Users/winston/Desktop/dev/winstonwr5.github.io/projects/Minute_Quiz_Actual/Trinity-College-Library-Dublin-1050x787.jpg);
+    background-repeat: no-repeat;
+
 }
 
 #hero-title {
     display: flex;
-    text-align: center;
-    margin: 12px auto;
+    justify-content: center;
+    margin: 15px auto;
+    height: 100px;
+    width: 300px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
 }
 
 .container {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    justify-content: center;
+}
+
+.questions, .dataInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #first-modal {
@@ -58,11 +79,14 @@
 }
 
 .button {
+    display: flex;
+    justify-content: center;
     padding: 14px 18px;
     background-color: #FF896F;
     border: none;
     outline: none;
     border-radius: 3px;
+    margin: 12px auto;
     color: white;
     font-family: Avenir;
     cursor: pointer;
@@ -81,7 +105,11 @@
 
 
 h1 {
+    align-items:center;
     text-decoration: underline;
     color: #FA455B;
     padding-bottom: 15px;
+    width: 200px;
+    font-size: 2em;
+
 }

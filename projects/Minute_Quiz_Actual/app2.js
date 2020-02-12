@@ -47,8 +47,8 @@ $(( ) => {
     const gameEndModal = () => {
         $gameEndModal.css('display', 'block');
     }
-    const closeGameEndModal = (event) => {
-        event.preventDefault()
+    const closeGameEndModal = () => {
+        // event.preventDefault()
         $gameEndModal.css('display', 'none')
     }
     $openBtn.on('click', openModal)
@@ -63,15 +63,18 @@ $(( ) => {
         $('#start-button').hide()
         $('#openModal').hide();
     }
-        function show() {
-        $('#game-end-modal').show();
-    };
-        function gameTimer() {
+        function show(event) {
+            // event.preventDefault()
+        $('#game-end-modal').show()
+        return;
+    }
+        function gameTimer(event) {
             setInterval(() => {
                 secondsTimer--;
                 if (secondsTimer <= 0) {
                     clearInterval(gameTimer);
                     $('#game-timer').html('<h2>Time!<h2>');
+                    // event.preventDefault();
                     show();
                     return;
                 } else {
