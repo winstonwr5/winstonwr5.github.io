@@ -1,7 +1,15 @@
 $(( ) => {
+
+    //////////////////////////////////////////////////////
+    ///// I initially wanted to push the number of ///////
+    ///// right and wrong answers into an array, but /////
+    ///// I wasn't able to get it to work.... ////////////
+    //////////////////////////////////////////////////////
+
     // let numberRight = []
     //
     // let numberWrong = []
+
                     ///////////////////////////////////////
                     //// Opening Modal with Game Rules ////
                     ///////////////////////////////////////
@@ -54,19 +62,22 @@ $(( ) => {
     $openBtn.on('click', openModal)
     $closeBtn.on('click', closeModal)
     $closeOutBtn.on('click', closeGameEndModal)
-        /////////////////////////////////
-        // function for game countdown //
-        /////////////////////////////////
+            ////////////////////////////////////////////
+            // function for modals and game countdown //
+            ////////////////////////////////////////////
+
         const $secondsTimer = $('#seconds-timer')
-        let secondsTimer = 10
+        let secondsTimer = 60
         function hide() {
         $('#start-button').hide()
         $('#openModal').hide();
     }
         function show(event) {
             // event.preventDefault()
-        $('#game-end-modal').show()
-        return;
+        $('#game-end-modal').show();
+    }
+        function endHide() {
+        $('#game-end-modal').hide();
     }
         function gameTimer(event) {
             setInterval(() => {
@@ -76,7 +87,10 @@ $(( ) => {
                     $('#game-timer').html('<h2>Time!<h2>');
                     // event.preventDefault();
                     show();
+                    // closeGameEndModal();
                     return;
+    /// This was an attempt to make the Game Over modal disappear ///
+                    // endHide();
                 } else {
                     $('#countdown').text(secondsTimer + " secs");
                     // console.log("Game-timer -->" + secondsTimer);
