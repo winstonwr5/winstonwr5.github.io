@@ -1,22 +1,41 @@
 * {
     border: 2px solid gold;
+    box-sizing: border-box;
 }
 
 body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
     margin: 0;
     background-image: url("https://www.californiahomedesign.com/wp-content/uploads/2020/01/trinity-college-library.png");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    height: 100vh;
+
 }
+
+/* @media (min-width: 600px) {
+    body {
+
+        margin: 0;
+        background-image: url("https://www.californiahomedesign.com/wp-content/uploads/2020/01/trinity-college-library.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        height: 100%vh;
+    }
+
+} */
 
 .container {
     display: flex;
     flex-direction: column;
     font-family: 'Quicksand', sans-serif;
     font-weight: 300;
+    /* justify-content: center; */
     justify-content: center;
+    flex: 1;
 }
 
 #hero-title {
@@ -27,42 +46,67 @@ body {
     width: 600px;
     font-family: 'Quicksand', sans-serif;
     font-weight: 600;
+    /* font-size: 2.25vw; */
 }
+
+/* @media (min-width: 600px) {
+    #hero-title {
+        width: 800px;
+        font-size: 25px;
+        /* height: 400px;
+        width: 100%;
+        align-items: center;
+        font-weight: 800; */
+    }
+} */
 
 #openModal {
-    margin: 25px auto;
+    display: flex;
+    flex: .5;
+    flex-direction: column;
+    justify-content: center;
+    margin: 2px auto;
 }
-
 
 #game-timer {
     display: flex;
-    height: 100px;
-    width: 917px;
+    flex-direction: column;
+    flex: .1;
+    /* height: 100px;
+    width: 917px; */
     justify-content: center;
     align-items: center;
-    font-size: 140%;
+    margin: 12px auto;
+    padding: 12px 10px;
+    font-size: 20vw;
     color: #FFFFFF;
 }
 .questions, .dataInput {
     display: flex;
+    flex: .5;
     flex-direction: column;
     align-items: center;
 }
 
 .questions {
     display: flex;
+    flex: .1;
+    justify-content: center;
     color: #FFFFFF;
-    margin: 12px 50px;
-    padding: 12px 10px;
+    font-size: 35px;
+    margin: 5px 50px;
+    padding: 30px 10px 12px 10px;
     box-sizing: border-box;
 
 }
 
 .questionList {
     display: flex;
+    justify-content: space-between;
+    font-size: 4.5vw;
     flex-direction: column;
     line-height: 25px;
-    width: 300px;
+    width: 65vw;
 }
 
 h1 {
@@ -122,6 +166,7 @@ h1 {
     font-family: Avenir;
 }
 
+
 #modal-footer {
     text-align: right;
 }
@@ -131,17 +176,10 @@ h1 {
 }
 
 .button {
-    display: flex;
-    justify-content: center;
-    padding: 14px 18px;
+    width: 200px;
+    font-size: 25px;
     background-color: #FF896F;
-    border: none;
-    outline: none;
-    border-radius: 3px;
-    margin: 12px auto;
     color: white;
-    font-family: Avenir;
-    cursor: pointer;
 }
 
 .endButton {
@@ -153,4 +191,10 @@ h1 {
     color: white;
     font-family: Avenir;
     cursor: pointer;
+}
+
+@media screen and (max-width: 575px) {
+    .container {
+        display: block;
+    }
 }
